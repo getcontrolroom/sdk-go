@@ -97,3 +97,7 @@ make tidy       # go mod tidy
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+---
+
+Built by [Control Room](https://getcontrolroom.com) · Developed by [Clover Labs](https://cloverlabs.io)
