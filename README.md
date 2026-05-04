@@ -60,6 +60,31 @@ client, _ := crsdk.NewClientWithResponses(
 )
 ```
 
+## Timeouts
+
+`http.DefaultClient` has no timeout. Always pass a custom client with a deadline:
+
+```go
+import "net/http"
+import "time"
+
+httpClient := &http.Client{Timeout: 30 * time.Second}
+
+client, _ := crsdk.NewClientWithResponses(
+    "https://api.getcontrolroom.com",
+    crsdk.WithHTTPClient(httpClient),
+)
+```
+
+Prefer per-request context deadlines for finer control:
+
+```go
+ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+defer cancel()
+
+resp, err := client.GetBookingWithResponse(ctx, bookingID)
+```
+
 ## Regenerating
 
 Requires [oapi-codegen](https://github.com/oapi-codegen/oapi-codegen) and the spec at `../spec/openapi.yaml`.
