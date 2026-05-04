@@ -1,0 +1,6 @@
+# binaries
+*.exe
+*.out
+
+# test cache
+/tmp/

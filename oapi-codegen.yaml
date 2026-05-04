@@ -1,0 +1,6 @@
+package: crsdk
+generate:
+  models: true
+  client: true
+  embedded-spec: false
+output: client.gen.go
